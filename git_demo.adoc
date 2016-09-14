@@ -1,0 +1,97 @@
+Git Demo
+========
+
+== Basic Workflow
+.Laptop 1
+. Status
+. Log
+. Make Change
+. Status
+. Commit
+. Push
+. Status
+. Log
+
+.Laptop 2
+. Clone
+. Status
+. Log
+
+
+== Atomic Commits and Distributed Nature
+.Laptop 2
+. Make Changes in existing file, Add new file
+. Status
+. Commit
+
+.Laptop 1
+. Pull (rebase)
+. Log (show no changes)
+
+.Laptop 2
+. Push
+
+.Laptop 1
+. Pull
+. Log (show changes)
+
+== Manual Merging
+.Laptop 1
+. Change File1
+. Commit
+. Push
+
+.Laptop 2
+. Change same line in File1
+. Commit
+. Push (show error)
+. Pull (rebase)
+. Handle Merge Conflict (in Vim, showing markers)
+. Finish Rebase
+. Push
+
+.Laptop 1
+. Pull
+. Show my changes + their changes
+. (Hippie rants about merging early and often)
+
+
+== Auto Merging
+.Laptop 1
+. Change File1
+. Commit
+. Push
+
+.Laptop 2
+. Change different line in File1
+. Commit
+. Push (show error)
+. Pull (rebase)
+. Show output (auto-commit)
+. Push
+
+.Laptop 1
+. Pull
+. Show my changes + their changes
+
+
+== Branching
+.Laptop 1
+. Create local branch for production hotfix from earlier point in history
+
+.Laptop 2
+. List branches (show doesn't exist here)
+
+.Laptop 1
+. Make fix
+. Commit to branch
+. Push branch
+
+.Laptop 2
+. Pull
+. List branches
+. Checkout hotfix branch
+. Log
+
+.Laptop 1
+. Cherry-pick change to master (as an option to merge individual changes)
